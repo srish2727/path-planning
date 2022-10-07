@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot
+  name="two_wheel_robot">
+  
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0215991281826754 -1.11022302462516E-16 -0.0436736314280723"
+        rpy="0 0 0" />
+      <mass
+        value="31.9580683938502" />
+      <inertia
+        ixx="0.577666345103069"
+        ixy="-1.77463164369952E-17"
+        ixz="0.0320171257224286"
+        iyy="1.88253718211803"
+        iyz="4.14843937070388E-18"
+        izz="2.40998198569462" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://two_wheel_robot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://two_wheel_robot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <link
+    name="left_link">
+    <inertial>
+      <origin
+        xyz="5.55111512312578E-17 -0.017608695652174 0"
+        rpy="0 0 0" />
+      <mass
+        value="1.15610609652104" />
+      <inertia
+        ixx="0.00368119989262291"
+        ixy="-4.15577162170452E-19"
+        ixz="2.87638271671773E-19"
+        iyy="0.00671546845631355"
+        iyz="-5.73406098635469E-20"
+        izz="0.00368119989262291" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://two_wheel_robot/meshes/left_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://two_wheel_robot/meshes/left_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="left_joint"
+    type="continuous">
+    <origin
+      xyz="-0.14188 0.27 -0.04"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="1"
+      velocity="1" />
+  </joint>
+ 
+  <link
+    name="right_link">
+    <inertial>
+      <origin
+        xyz="0 0.0176086956521739 -1.11022302462516E-16"
+        rpy="0 0 0" />
+      <mass
+        value="1.15610609652104" />
+      <inertia
+        ixx="0.00368119989262291"
+        ixy="-6.5904795560317E-19"
+        ixz="2.91167575618666E-19"
+        iyy="0.00671546845631355"
+        iyz="5.18367490244264E-20"
+        izz="0.00368119989262291" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://two_wheel_robot/meshes/right_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://two_wheel_robot/meshes/right_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint
+    name="right_joint"
+    type="continuous">
+    <origin
+      xyz="-0.14188 -0.27 -0.04"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="1"
+      velocity="1" />
+  </joint>
+
+</robot>

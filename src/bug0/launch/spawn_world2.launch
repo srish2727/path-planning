@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find gazebo_worlds)/worlds/world2.world"/>
+    </include>
+    
+    <param name="robot_description" command="cat '$(find two_wheel_robot)/urdf/two_wheel_robot.urdf'" />
+    
+    <arg name="x" default="0"/>
+    <arg name="y" default="1"/>
+    <arg name="z" default="0.5"/>
+    
+    <node name="two_wheel_robot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+          args="-urdf -param robot_description -model two_wheel_robot -x $(arg x) -y $(arg y) -z $(arg z)" />
+
+</launch>
